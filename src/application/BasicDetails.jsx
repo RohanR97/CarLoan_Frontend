@@ -14,6 +14,7 @@ function BasicDetails() {
     setFormData({
       ...formData,
       basic: data,
+      
     });
     navigate("/address");
   }
@@ -135,14 +136,7 @@ function BasicDetails() {
             />
           </div>
 
-          <div className="mb-3 col-md-6">
-            <label className="form-label text-danger">Loan Status</label>
-            <input
-              type="text"
-              className="form-control text-primary"
-              {...register('loanStatus')}
-            />
-          </div>
+         
         </div>
 
         <div className="text-center">

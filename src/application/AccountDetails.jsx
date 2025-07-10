@@ -1,68 +1,64 @@
-import React from 'react'
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FormContext } from '../FormContext';
 
 function AccountDetails() {
+  const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm();
+  const { formData, setFormData } = useContext(FormContext);
+  const navigate = useNavigate();
 
-    const{register,handleSubmit,setValue,reset,formState:{errors}}=useForm();
-
-    const{formData,setFormData}=useContext(FormContext);
-
-  const navigate=useNavigate();
-
-    function saveData(data)
-    {
-
-      setFormData({ 
-      ...formData, 
-      accountdetails: data 
+  function saveData(data) {
+    setFormData({
+      ...formData,
+      accountdetails: data
     });
+    navigate("/dependent");
+  }
 
-      navigate("/dependent");
-    }
   return (
-    <div>
-      <h1>Account Details</h1>
+    <div className="container mt-5">
+      <h2 className="text-center mb-4 text-primary">Account Details</h2>
 
-        <div>
-            <form onSubmit={handleSubmit(saveData)}>
-              <div className="mb-3">
-                 <label style={{ color: 'red' }}>Account Type</label>
-                 <input type="text" name="accountType" {...register("accountType")} style={{ color: 'blue' }}></input>
-              </div>
+      <form onSubmit={handleSubmit(saveData)} className="row g-3">
 
-              <div className="mb-3">
-                <label style={{ color: 'red' }}>Account Balance</label>
-              <input type="number" name="accountBalance" {...register("accountBalance")} style={{ color: 'blue' }}></input>
-              </div>
-
-               <div className="mb-3">
-                <label style={{ color: 'red' }}>Account Holder Name</label>
-              <input type="text" name="accountHolderName" {...register("accountHolderName")} style={{ color: 'blue' }}></input>
-              </div>
-
-               <div className="mb-3">
-                <label style={{ color: 'red' }}>Account Status</label>
-              <input type="text" name="accountStatus" {...register("accountStatus")} style={{ color: 'blue' }}></input>
-              </div>
-
-
-                <div className="mb-3">
-                <label style={{ color: 'red' }}>Account Number</label>
-              <input type="number" name="accountNumber" {...register("accountNumber")} style={{ color: 'blue' }}></input>
-              </div>
-
-              <div>
-                <button type='submit' className='btn btn-success'>SAVE & NEXT</button>
-              </div>
-
-              
-            </form>
+        <div className="col-md-6">
+          <label className="form-label fw-bold text-secondary">Account Type</label>
+          <input type="text" className="form-control" {...register("accountType", { required: true })} />
+          {errors.accountType && <p className="text-danger">Account Type is required</p>}
         </div>
+
+        <div className="col-md-6">
+          <label className="form-label fw-bold text-secondary">Account Balance</label>
+          <input type="number" className="form-control" {...register("accountBalance", { required: true })} />
+          {errors.accountBalance && <p className="text-danger">Account Balance is required</p>}
+        </div>
+
+        <div className="col-md-6">
+          <label className="form-label fw-bold text-secondary">Account Holder Name</label>
+          <input type="text" className="form-control" {...register("accountHolderName", { required: true })} />
+          {errors.accountHolderName && <p className="text-danger">Account Holder Name is required</p>}
+        </div>
+
+        <div className="col-md-6">
+          <label className="form-label fw-bold text-secondary">Account Status</label>
+          <input type="text" className="form-control" {...register("accountStatus", { required: true })} />
+          {errors.accountStatus && <p className="text-danger">Account Status is required</p>}
+        </div>
+
+        <div className="col-md-6">
+          <label className="form-label fw-bold text-secondary">Account Number</label>
+          <input type="number" className="form-control" {...register("accountNumber", { required: true })} />
+          {errors.accountNumber && <p className="text-danger">Account Number is required</p>}
+        </div>
+
+        <div className="col-12 text-center mt-4">
+          <button type="submit" className="btn btn-success px-5">Save & Next</button>
+        </div>
+      </form>
     </div>
-  )
+  );
 }
 
-export default AccountDetails
+export default AccountDetails;

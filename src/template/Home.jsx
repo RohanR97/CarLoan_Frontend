@@ -46,9 +46,9 @@ function Home() {
             <Link className="nav-link" to="/enquiry">Enquiry</Link>
           </li>
 
-          {/* <li className="nav-item">
+          <li className="nav-item">
            <Link className='btn btn-light m-2' to='/add'>Loan Application</Link>
-          </li> */}
+          </li>
         </ul>
       </div>
     </nav>

@@ -1,10 +1,21 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const{register, handleSubmit}=useForm();
+
+  const navigate=useNavigate();
+
+  function onLogin()
+  {
+    alert("Logged in Succcessfully.");
+    navigate('/dashboard');
+  }
   return (
     <div className="container mt-5">
       <h2 className="mb-4">Login</h2>
-      <form>
+      <form onSubmit={handleSubmit(onLogin)}>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
           <input

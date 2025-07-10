@@ -18,6 +18,8 @@ import About from './application/About'
 import Login from './application/Login'
 import EmiCalculator from './application/EmiCalculator'
 import Enquiry from './application/Enquiry'
+import Dashboard from './Dashboard/Dashboard'
+import ViewCustomer from './Modules/Relational/ViewCustomer'
 
 
 
@@ -43,7 +45,8 @@ function App() {
           <Route path='dependent' element={<DependentInfo></DependentInfo>}></Route>
           <Route path='guarantor' element={<GuarantorDetails></GuarantorDetails>}></Route>
           <Route path='file' element={<Files></Files>}></Route>
-
+          <Route path='dashboard/*' element={<Dashboard></Dashboard>}></Route>
+          <Route path="viewcustomer" element={<ViewCustomer></ViewCustomer>}></Route>
 
         
         </Routes>

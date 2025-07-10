@@ -1,64 +1,64 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { FormContext } from '../FormContext';
 
 function DependentInfo() {
+  const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm();
+  const { formData, setFormData } = useContext(FormContext);
+  const navigate = useNavigate();
 
-     const{register,handleSubmit,setValue,reset,formState:{errors}}=useForm();
- 
- const{formData,setFormData}=useContext(FormContext);
-
- const navigate=useNavigate();
-
- function saveData(data)
-    {
-
-      setFormData({ 
-      ...formData, 
-      familydependentinfo: data 
+  function saveData(data) {
+    setFormData({
+      ...formData,
+      familydependentinfo: data
     });
 
-    navigate("/guarantor")
-    }
-     return (
-    <div>
-       <h1>Dependent Information</h1>
+    navigate("/guarantor");
+  }
 
-        <div>
-            <form onSubmit={handleSubmit(saveData)}>
-              <div className="mb-3">
-                 <label style={{ color: 'red' }}>No.of Family Members</label>
-                 <input type="number" name="noOfFamilyMember" {...register("noOfFamilyMember")} style={{ color: 'blue' }}></input>
-              </div>
+  return (
+    <div className="container mt-5">
+      <h2 className="text-center mb-4 text-primary">Dependent Information</h2>
 
-              <div className="mb-3">
-                <label style={{ color: 'red' }}>No.of Children</label>
-              <input type="number" name="noOfChild" {...register("noOfChild")} style={{ color: 'blue' }}></input>
-              </div>
+      <form onSubmit={handleSubmit(saveData)} className="row g-3">
 
-               <div className="mb-3">
-                <label style={{ color: 'red' }}>Marital Status</label>
-              <input type="text" name="maritalStatus" {...register("maritalStatus")} style={{ color: 'blue' }}></input>
-              </div>
-
-               <div className="mb-3">
-                <label style={{ color: 'red' }}>Dependent Member</label>
-              <input type="text" name="dependentMember" {...register("dependentMember")} style={{ color: 'blue' }}></input>
-              </div>
-
-               <div className="mb-3">
-                <label style={{ color: 'red' }}>Family Income</label>
-              <input type="text" name="familyIncome" {...register("familyIncome")} style={{ color: 'blue' }}></input>
-              </div>
-
-              <div>
-                <button type='submit' className='btn btn-success'>SAVE & NEXT</button>
-              </div>
-           </form>
+        <div className="col-md-6">
+          <label className="form-label fw-bold text-secondary">No. of Family Members</label>
+          <input type="number" className="form-control" {...register("noOfFamilyMember", { required: true })} />
+          {errors.noOfFamilyMember && <p className="text-danger">This field is required</p>}
         </div>
+
+        <div className="col-md-6">
+          <label className="form-label fw-bold text-secondary">No. of Children</label>
+          <input type="number" className="form-control" {...register("noOfChild", { required: true })} />
+          {errors.noOfChild && <p className="text-danger">This field is required</p>}
+        </div>
+
+        <div className="col-md-6">
+          <label className="form-label fw-bold text-secondary">Marital Status</label>
+          <input type="text" className="form-control" {...register("maritalStatus", { required: true })} />
+          {errors.maritalStatus && <p className="text-danger">This field is required</p>}
+        </div>
+
+        <div className="col-md-6">
+          <label className="form-label fw-bold text-secondary">Dependent Member</label>
+          <input type="text" className="form-control" {...register("dependentMember", { required: true })} />
+          {errors.dependentMember && <p className="text-danger">This field is required</p>}
+        </div>
+
+        <div className="col-md-6">
+          <label className="form-label fw-bold text-secondary">Family Income</label>
+          <input type="text" className="form-control" {...register("familyIncome", { required: true })} />
+          {errors.familyIncome && <p className="text-danger">This field is required</p>}
+        </div>
+
+        <div className="col-12 text-center mt-4">
+          <button type="submit" className="btn btn-success px-5">Save & Next</button>
+        </div>
+      </form>
     </div>
-  )
+  );
 }
 
-export default DependentInfo
+export default DependentInfo;
