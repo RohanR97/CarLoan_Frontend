@@ -47,6 +47,9 @@ function App() {
           <Route path='file' element={<Files></Files>}></Route>
           <Route path='dashboard/*' element={<Dashboard></Dashboard>}></Route>
           <Route path="viewcustomer" element={<ViewCustomer></ViewCustomer>}></Route>
+          
+
+          
 
         
         </Routes>
