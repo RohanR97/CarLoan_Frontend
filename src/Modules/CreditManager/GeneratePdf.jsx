@@ -9,77 +9,6 @@
 // // }
 
 
-
-// import React, { useState } from "react";
-// import axios from "axios";
-
-// const GeneratePdf = () => {
-//   const [customerID, setCustomerID] = useState("");
-//   const [sanctionData, setSanctionData] = useState(null);
-//   const [message, setMessage] = useState("");
-
-//   const handleGenerate = async () => {
-//     try {
-//       const sanctionRequest = {
-//         loanRequired: 1000000 // Replace with dynamic input if needed
-//       };
-
-//       const res = await axios.put(
-//         `http://localhost:8084/generatePdf/${customerID}`,
-//         sanctionRequest
-//       );
-
-//       if (res.data) {
-//         setSanctionData(res.data);
-//         setMessage("✅ Sanction Letter PDF generated successfully!");
-//       } else {
-//         setMessage("⚠️ No data returned from the server.");
-//       }
-//     } catch (error) {
-//       console.error("Error generating sanction PDF:", error);
-//       setMessage("❌ Failed to generate PDF.");
-//     }
-//   };
-
-//   return (
-//     <div style={{ padding: "20px" }}>
-//       <h2>📄 Generate Sanction Letter PDF</h2>
-
-//       <input
-//         type="text"
-//         placeholder="Enter Customer ID"
-//         value={customerID}
-//         onChange={(e) => setCustomerID(e.target.value)}
-//         style={{ padding: "8px", marginRight: "10px", width: "200px" }}
-//       />
-
-//       <button onClick={handleGenerate} style={{ padding: "8px 16px" }}>
-//         Generate PDF
-//       </button>
-
-//       <p style={{ marginTop: "15px", color: message.startsWith("✅") ? "green" : "red" }}>
-//         {message}
-//       </p>
-
-//       {sanctionData?.sanctionLetter && (
-//         <div style={{ marginTop: "20px", border: "1px solid #ccc", padding: "15px", borderRadius: "6px" }}>
-//           <h4>📋 Sanction Letter Details</h4>
-//           <p><strong>Applicant Name:</strong> {sanctionData.sanctionLetter.applicantName}</p>
-//           <p><strong>Contact:</strong> {sanctionData.sanctionLetter.contactDetails}</p>
-//           <p><strong>Email:</strong> {sanctionData.customerEmail}</p>
-//           <p><strong>Loan Amount:</strong> ₹{sanctionData.sanctionLetter.loanAmountSanctioned}</p>
-//           <p><strong>Rate of Interest:</strong> {sanctionData.sanctionLetter.rateOfInterest}%</p>
-//           <p><strong>Tenure:</strong> {sanctionData.sanctionLetter.loanTenureInMonths} months</p>
-//           <p><strong>Monthly EMI:</strong> ₹{Math.round(sanctionData.sanctionLetter.monthlyEmiAmount)}</p>
-//           <p><strong>Status:</strong> {sanctionData.sanctionLetter.status}</p>
-//           <p><strong>Sanction Date:</strong> {new Date(sanctionData.sanctionLetter.sanctionDate).toLocaleDateString()}</p>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default GeneratePdf;
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -107,7 +36,7 @@ const GeneratePdf = () => {
   const handleGeneratePdf = async (customerID) => {
     try {
       const sanctionRequest = {
-        loanRequired: 1000000 // Static or make dynamic if needed
+        loanRequired: 1000000 
       };
 
       const res = await axios.put(
@@ -169,7 +98,7 @@ const GeneratePdf = () => {
         <p>No verified customers found.</p>
       )}
 
-      {/* Display sanction letter details if available */}
+     
       {selectedSanctionData?.sanctionLetter && (
         <div className="mt-6 border p-4 rounded bg-gray-100">
           <h4 className="text-lg font-semibold mb-2">📋 Sanction Letter Details</h4>

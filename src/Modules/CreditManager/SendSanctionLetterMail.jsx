@@ -28,7 +28,7 @@ const SendSanctionLetterMail = () => {
       const res = await axios.get("http://localhost:8084/getVerifiedCustomersAPI");
       if (res.data && res.data.length > 0) {
         setSanctionLetters(res.data);
-        setMessage(""); // clear previous message
+        setMessage(""); 
       } else {
         setMessage("⚠️ No sanction letters found.");
       }

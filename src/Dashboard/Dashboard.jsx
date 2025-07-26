@@ -11,7 +11,7 @@ import SendSanctionLetterMail from "../Modules/CreditManager/SendSanctionLetterM
 import GeneratePdf from "../Modules/CreditManager/GeneratePdf";
 import AcceptedData from '../Modules/CreditManager/AcceptedData';
 import AllVerifiedData from '../Modules/CreditManager/AllVerifiedData';
-// import AllVerifiedData from '../Modules/CreditManager/AllVerifiedData';
+
 
 import CibilCheck from '../Modules/OperationalExecutive/CibilCheck';
 import DocumentVerification from '../Modules/OperationalExecutive/DocumentVerification';

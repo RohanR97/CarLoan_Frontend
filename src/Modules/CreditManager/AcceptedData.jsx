@@ -63,7 +63,6 @@ const AcceptedDataTable = ({ status = "Accepted" }) => {
             {acceptedCustomers.map((customer, index) => (
               <tr key={customer.customerID || index}>
                 <td>{customer.customerID}</td>
-                {/* <td>{customer.firstName} {customer.lastName}</td> */}
                 <td>{customer.customerName}</td>
                 <td>{customer.sanctionLetter.loanRequired}</td>
                 <td>{customer.sanctionLetter.loanTenureInMonths}</td>
