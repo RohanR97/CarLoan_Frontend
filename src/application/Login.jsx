@@ -1,65 +1,47 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Login() {
-  const{register, handleSubmit}=useForm();
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
 
-  const navigate=useNavigate();
+  const onLogin = async (data) => {
+    try {
+      const response = await axios.get(`http://localhost:8086/userLogin/${data.username}/${data.password}`);
+      const user = response.data;
 
-  function onLogin()
-  {
-    alert("Logged in Succcessfully.");
-    navigate('/dashboard');
-  }
+      if (user && user.username) {
+        alert("Login Success ...!!");
+        console.log("Logged in user: ", user);
+        localStorage.setItem("employee", JSON.stringify(user));
+        navigate('/dashboard');
+      } else {
+        alert("Invalid details ...!!");
+      }
+    } catch (error) {
+      console.error("Login Error:", error);
+      alert("Unable to connect to server or invalid credentials.");
+    }
+  };
+
   return (
-    <div className="container mt-5">
-      <h2 className="mb-4">Login</h2>
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h2>Login</h2>
+
       <form onSubmit={handleSubmit(onLogin)}>
-        <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="Enter email"
-          />
-          <small id="emailHelp" className="form-text text-muted">
-            We'll never share your email with anyone else.
-          </small>
+        <div style={{ marginBottom: '15px' }}>
+          <label>Username: </label>
+          <input type="text" {...register('username', { required: true })} />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="exampleInputPassword1">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            id="exampleInputPassword1"
-            placeholder="Password"
-          />
+        <div style={{ marginBottom: '15px' }}>
+          <label>Password: </label>
+          <input type="password" {...register('password', { required: true })} />
         </div>
 
-        <div className="form-group">
-          <label htmlFor="roleSelect">Select Role</label>
-          <select className="form-control" id="roleSelect">
-            <option value="">-- Select Role --</option>
-            <option value="OE">OE (Operational Executive)</option>
-            <option value="RE">RE (Relational Executive)</option>
-            <option value="ADMIN">ADMIN</option>
-            <option value="CM">CM (Credit Manager)</option>
-            <option value="AH">AH (Account Head)</option>
-          </select>
-        </div>
-
-        <div className="form-group form-check">
-          <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-          <label className="form-check-label" htmlFor="exampleCheck1">
-            Remember me
-          </label>
-        </div>
-
-        <button type="submit" className="btn btn-primary">Login</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   );

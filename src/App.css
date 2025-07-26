@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.app{
+  background-image: url('./assets/background.webp');
+  height:713px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
