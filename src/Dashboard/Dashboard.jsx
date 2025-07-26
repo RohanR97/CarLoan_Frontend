@@ -61,12 +61,12 @@ function Dashboard() {
         <Profile />
       </div>
 
-      <div style={{ display: 'flex', height: '60vh', marginTop: '20px' }}>
+      <div style={{ display: 'flex', height: '100vh', marginTop: '20px' }}>
         <div style={{ border: 'dashed 1px', width: '30%', padding: '10px' }}>
           <SideNav />
         </div>
 
-        <div style={{ border: 'groove 2px', width: '70%', padding: '20px' }}>
+        <div style={{ border: 'groove 2px', width: '100%', padding: '20px' }}>
           <Routes>
             {
               

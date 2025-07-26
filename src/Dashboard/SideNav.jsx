@@ -38,7 +38,7 @@ function SideNav() {
       gap: '10px', 
       padding: '20px',
       backgroundColor: '#f9f9f9',
-      minHeight: '100vh',
+      minHeight: '50vh',
       width: '250px',
       boxShadow: '2px 0 5px rgba(0,0,0,0.1)'
     }}>

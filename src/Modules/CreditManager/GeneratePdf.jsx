@@ -98,7 +98,6 @@ const GeneratePdf = () => {
         <p>No verified customers found.</p>
       )}
 
-     
       {selectedSanctionData?.sanctionLetter && (
         <div className="mt-6 border p-4 rounded bg-gray-100">
           <h4 className="text-lg font-semibold mb-2">📋 Sanction Letter Details</h4>
