@@ -17,7 +17,6 @@ const GeneratePdf = () => {
   const [selectedSanctionData, setSelectedSanctionData] = useState(null);
   const [message, setMessage] = useState("");
 
-  // Fetch verified customers when the component loads
   const fetchVerifiedCustomers = async () => {
     try {
       const res = await axios.get("http://localhost:8084/getVerifiedCustomersAPI");
@@ -32,7 +31,6 @@ const GeneratePdf = () => {
     fetchVerifiedCustomers();
   }, []);
 
-  // Generate PDF for a specific customer
   const handleGeneratePdf = async (customerID) => {
     try {
       const sanctionRequest = {

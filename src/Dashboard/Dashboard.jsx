@@ -66,7 +66,7 @@ function Dashboard() {
           <SideNav />
         </div>
 
-        <div style={{ border: 'groove 2px', width: '100%', padding: '20px' }}>
+        <div style={{ border: 'groove 2px', width: '100n%', padding: '20px' }}>
           <Routes>
             {
               
