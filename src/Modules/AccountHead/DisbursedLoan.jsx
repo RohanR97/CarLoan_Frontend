@@ -46,7 +46,6 @@ const DisburseLoan = () => {
     }
   };
 
- 
   const handlePayLoan = async () => {
     try {
       const response = await axios.put(
@@ -61,7 +60,7 @@ const DisburseLoan = () => {
   };
 
   return (
-    <div style={{ padding: '100px' }}>
+    <div style={{ padding: '50px' }}>
       <h2>Loan Disbursement</h2>
 
       <label>Customer ID:</label>
@@ -103,24 +102,52 @@ const DisburseLoan = () => {
       />
       <br /><br />
 
-      <button onClick={handleDisburseLoan}>Disburse Loan</button>{' '}
-      <button onClick={handlePayLoan}>Pay</button>
+      <button onClick={handleDisburseLoan}>Disburse Loan</button>
 
-      {message && <p style={{ color: 'green' }}>{message}</p>}
+      {message && <p style={{ color: 'green', marginTop: '10px' }}>{message}</p>}
 
       {loanDisbursement && (
-        <div style={{ marginTop: '100px' }}>
+        <div style={{ marginTop: '40px' }}>
           <h3>Disbursement Details</h3>
-          <p><strong>Bank:</strong> {loanDisbursement.bankName}</p>
-          <p><strong>Account Number:</strong> {loanDisbursement.accountNumber}</p>
-          <p><strong>Account Type:</strong> {loanDisbursement.accountType}</p>
-          <p><strong>IFSC Code:</strong> {loanDisbursement.ifscCode}</p>
-          <p><strong>Total Amount:</strong> ₹{loanDisbursement.totalAmount}</p>
-          <p><strong>Transfer Amount:</strong> ₹{loanDisbursement.transferAmount}</p>
-          <p><strong>Status:</strong> {loanDisbursement.paymentStatus}</p>
-          {loanDisbursement.amountPaidDate && (
-            <p><strong>Paid On:</strong> {new Date(loanDisbursement.amountPaidDate).toLocaleDateString()}</p>
-          )}
+          <table border="1" cellPadding="10" cellSpacing="0">
+            <thead>
+              <tr>
+                <th>Bank</th>
+                <th>Account Number</th>
+                <th>Account Type</th>
+                <th>IFSC Code</th>
+                <th>Total Amount</th>
+                <th>Transfer Amount</th>
+                <th>Status</th>
+                <th>Paid On</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{loanDisbursement.bankName}</td>
+                <td>{loanDisbursement.accountNumber}</td>
+                <td>{loanDisbursement.accountType}</td>
+                <td>{loanDisbursement.ifscCode}</td>
+                <td>₹{loanDisbursement.totalAmount}</td>
+                <td>₹{loanDisbursement.transferAmount}</td>
+                <td>{loanDisbursement.paymentStatus}</td>
+                <td>
+                  {loanDisbursement.amountPaidDate
+                    ? new Date(loanDisbursement.amountPaidDate).toLocaleDateString()
+                    : 'N/A'}
+                </td>
+                <td>
+                  <button
+                    onClick={handlePayLoan}
+                    disabled={loanDisbursement.paymentStatus === 'Disbursed'}
+                  >
+                    Pay
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       )}
     </div>
@@ -128,3 +155,4 @@ const DisburseLoan = () => {
 };
 
 export default DisburseLoan;
+
