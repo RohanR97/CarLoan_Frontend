@@ -77,6 +77,8 @@ const AcceptedDataTable = ({ status = "Accepted" }) => {
   );
 };
 
+
+
 export default AcceptedDataTable;
 
 
