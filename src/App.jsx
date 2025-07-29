@@ -1,5 +1,9 @@
 import { useState } from 'react'
+<<<<<<< HEAD
 import './App.css'                              
+=======
+import './App.css'
+>>>>>>> 9bac0ebb5e504c0c2b84a09141ad3eeeccfe687d
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import BasicDetails from './application/BasicDetails'
 import PermanentAddress from './application/PermanentAddress'
@@ -18,10 +22,15 @@ import Enquiry from './application/Enquiry'
 import Dashboard from './Dashboard/Dashboard'
 import CibilCheck from './Modules/OperationalExecutive/CibilCheck'
 import DocumentVerification from './Modules/OperationalExecutive/DocumentVerification'
+<<<<<<< HEAD
+=======
+import SendMail from './Modules/CreditManager/SendMail' 
+>>>>>>> 9bac0ebb5e504c0c2b84a09141ad3eeeccfe687d
 import DisbursedLoan from './Modules/AccountHead/DisbursedLoan'
 import GenerateLedger from './Modules/AccountHead/GenerateLedger'
 import AddEmployee from './Modules/AdminService/AddEmployee' 
 import ViewEmployee from './Modules/AdminService/ViewEmployee'
+<<<<<<< HEAD
 import ApplyLoan from './Modules/Relational/ApplyLoan' 
 import ViewAllEnquiries from './Modules/Relational/ViewAllEnquiries'
 import AddEnquiry from './Modules/Relational/AddEnquiry'
@@ -29,6 +38,12 @@ import SendSanctionLetterMail from "./Modules/CreditManager/SendSanctionLetterMa
 import GeneratePdf from "./Modules/CreditManager/GeneratePdf";
 import AcceptedData from './Modules/CreditManager/AcceptedData'
 import AllVerifiedData from './Modules/CreditManager/AllVerifiedData'
+=======
+import ApplyLoan from './Modules/Relational/ApplyLoan'
+import SanctionLetter from './Modules/CreditManager/SanctionLetter'  
+import ViewAllEnquiries from './Modules/Relational/ViewAllEnquiries'
+import AddEnquiry from './Modules/Relational/AddEnquiry'
+>>>>>>> 9bac0ebb5e504c0c2b84a09141ad3eeeccfe687d
 
 
 
@@ -63,10 +78,15 @@ function App() {
           <Route path='documentVerification' element={<DocumentVerification></DocumentVerification>}></Route>
           <Route path='applyloan' element={<ApplyLoan></ApplyLoan>}></Route>
           
+<<<<<<< HEAD
           <Route path='SendSanctionLetterMail' element={<SendSanctionLetterMail></SendSanctionLetterMail>}></Route>
           <Route path='generatePdf' element={<GeneratePdf></GeneratePdf>}></Route> 
           <Route path='acceptedData' element={<AcceptedData></AcceptedData>}></Route>
           <Route path='AllVerifiedData' element={<AllVerifiedData></AllVerifiedData>}></Route>
+=======
+          <Route path='SanctionLetter' element={<SanctionLetter></SanctionLetter>}></Route>
+          <Route path='sendMail' element={<SendMail></SendMail>}></Route> 
+>>>>>>> 9bac0ebb5e504c0c2b84a09141ad3eeeccfe687d
          
 
           <Route path='disbursedLoan' element={<DisbursedLoan></DisbursedLoan>}></Route>

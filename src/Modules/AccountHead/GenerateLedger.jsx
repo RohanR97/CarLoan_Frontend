@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React from 'react'
 
 // function GenerateLedger() {
@@ -100,3 +101,16 @@ const GenerateLedger = () => {
 };
 
 export default GenerateLedger;
+=======
+import React from 'react'
+
+function GenerateLedger() {
+  return (
+    <div>
+        <h2>GenerateLedger</h2>
+    </div>
+  )
+}
+
+export default GenerateLedger
+>>>>>>> 9bac0ebb5e504c0c2b84a09141ad3eeeccfe687d

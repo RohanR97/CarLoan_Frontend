@@ -34,8 +34,11 @@ function EmployeeForm() {
         empSalary: parseFloat(data.empSalary),
         empAge: parseInt(data.empAge),
         userType: data.userType,
+<<<<<<< HEAD
         username: data.username,
         password: data.password,
+=======
+>>>>>>> 9bac0ebb5e504c0c2b84a09141ad3eeeccfe687d
         dateOfBirth: data.dateOfBirth
       };
 
@@ -115,6 +118,7 @@ function EmployeeForm() {
         </div>
 
         <div className="form-group mb-3">
+<<<<<<< HEAD
           <label>Username</label>
           <input type="text" className="form-control"
             {...register('username', { required: true })} />
@@ -129,6 +133,8 @@ function EmployeeForm() {
         </div>
 
         <div className="form-group mb-3">
+=======
+>>>>>>> 9bac0ebb5e504c0c2b84a09141ad3eeeccfe687d
           <label>Date of Birth</label>
           <input type="date" className="form-control"
             {...register('dateOfBirth', { required: true })} />

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import React from 'react'
 
 // function DisbursedLoan() {
@@ -156,3 +157,16 @@ const DisburseLoan = () => {
 
 export default DisburseLoan;
 
+=======
+import React from 'react'
+
+function DisbursedLoan() {
+  return (
+    <div>
+        <h2>DisbursedLoan</h2>
+    </div>
+  )
+}
+
+export default DisbursedLoan
+>>>>>>> 9bac0ebb5e504c0c2b84a09141ad3eeeccfe687d
